@@ -49,8 +49,8 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 | Member–Payment         | 1 : M           | Total on Payment side      | A member can make multiple payments, and each payment belongs to one member. |
 
 ### Assumptions
----
-Assumptions
+
+
 1. Each member is uniquely identified using Member_ID.
 2. Members provide their name, membership type, and start date during registration.
 3. A member can join multiple fitness programs, such as Yoga, Zumba, and Weight Training.
@@ -61,7 +61,7 @@ Assumptions
 8. Each session is booked by one member and conducted by one trainer.
 9. Attendance records are maintained to track whether members are Present or Absent.
 10. Members can make multiple payments for memberships and personal training sessions.
----
+
 
 # Scenario B: City Library Event & Book Lending System
 
