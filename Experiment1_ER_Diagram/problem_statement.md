@@ -39,26 +39,28 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### Relationships and Constraints
 
-| **Relationship** | **Cardinality** | **Participation** | **Notes** |
-| --- | --- | --- | --- |
-| Member–Program | M : N | Optional | A member can enroll in multiple programs; each program can have many members. |
-| Program–Trainer | N : M | Optional | Trainers can be assigned to multiple programs; programs can have multiple trainers. |
-| Program–Session | M : N | Total on Session side | Each program consists of multiple sessions; sessions belong to programs. |
-| Member–Session | M : N | Optional | Members can book multiple sessions; sessions can be attended by multiple members. |
-| Session–Payment | N : 1 | Total on Payment side | Payments are linked to sessions; one payment may cover multiple sessions. |
-| Trainer–Attendance | 1 : M | Total | A trainer manages attendance records for sessions they conduct. |
-| Attendance–Member | 1 : N | Total | Attendance records are tied to members and sessions. |
+| **Relationship**       | **Cardinality** | **Participation**          | **Notes** |
+|------------------------|-----------------|----------------------------|-----------|
+| Member–Program         | M : N           | Optional                   | A member can join multiple fitness programs, and each program can have multiple members. |
+| Program–Trainer        | M : N           | Optional                   | A trainer can be assigned to multiple programs, and each program can have multiple trainers. |
+| Member–Session         | 1 : M           | Optional                   | A member can book multiple sessions, and each session is booked by one member. |
+| Trainer–Session        | 1 : M           | Total on Session side      | A trainer can conduct multiple sessions, and each session is conducted by one trainer. |
+| Session–Attendance     | 1 : M           | Total on Attendance side   | Each session can have multiple attendance records, and each attendance record belongs to one session. |
+| Member–Payment         | 1 : M           | Total on Payment side      | A member can make multiple payments, and each payment belongs to one member. |
 
 ### Assumptions
-- A Trainer can specialize in multiple areas and may lead multiple programs.
-
-- Session ID uniquely identifies each scheduled workout session.
-
-- Payment Type could be Cash, Card, Online, etc.
-
-- A member can miss sessions without losing membership, but attendance is still recorded.
 ---
-
+Assumptions
+1. Each member is uniquely identified using Member_ID.
+2. Members provide their name, membership type, and start date during registration.
+3. A member can join multiple fitness programs, such as Yoga, Zumba, and Weight Training.
+4. Each fitness program can have multiple members enrolled.
+5. Trainers can be assigned to multiple fitness programs.
+6. Each trainer has a unique Trainer_ID and a specific specialization.
+7. Each personal training session is uniquely identified using Session_ID.
+8. Each session is booked by one member and conducted by one trainer.
+9. Attendance records are maintained to track whether members are Present or Absent.
+10. Members can make multiple payments for memberships and personal training sessions.
 ---
 
 # Scenario B: City Library Event & Book Lending System
